@@ -3,8 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, of, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { RandomString } from './random';
-import { LocalIp } from './localIp';
+// import { LocalIp } from './localIp';
 
 interface Params {
 	project?: any;
@@ -31,14 +30,13 @@ export class TransactionsService {
 		if (localStorage.getItem('saraid')) {
 			saraId = localStorage.getItem('saraid');
 		} else {
-			saraId = new RandomString(10).string;
+			saraId = this.randomString(10);
 			localStorage.setItem('saraid', saraId);
 		}
 		this.token = localStorage.getItem('token');
 		this._saraId = saraId;
 		this.ips.push(saraId);
-		const localIp = new LocalIp(
-			ip => this.ips.push(ip));
+		// const localIp = new LocalIp( ip => this.ips.push(ip));
 	}
 	get auth(): string {
 		if (!this.token) {
@@ -161,10 +159,18 @@ export class TransactionsService {
 			return of(error2);
 		};
 
-
 		/*let errMsg = 'transaction error';
 		console.error('An error occurred');
 		console.error(error);
 		return Observable.throw(errMsg);*/
+	}
+
+	private randomString(length) {
+		const chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		let result = '';
+		for (let i = length; i > 0; --i) {
+			result += chars[Math.floor(Math.random() * chars.length)];
+		}
+		return result;
 	}
 }

@@ -1,0 +1,64 @@
+<div class="tab-header" *ngIf="showTabs">
+	<div class="tab" (click)="tabSelected='apps'" [ngClass]="tabSelected === 'apps'?'tab-selected':'tab-unselected'"
+		*ngIf="_apps">
+		<span class="text-primary tab-content">
+			<clr-icon shape="applications" size="24"></clr-icon>
+		</span>
+	</div>
+	<div class="tab" (click)="tabSelected='history'" [ngClass]="tabSelected === 'history'?'tab-selected':'tab-unselected'"
+		*ngIf="history">
+		<span class="text-primary tab-content">
+			<clr-icon shape="history"></clr-icon>
+		</span>
+	</div>
+	<div class="tab" [ngClass]="tabSelected === 'menu'?'tab-selected':'tab-unselected'">
+		<span (click)="tabSelected='menu'" class="tab-content" *ngIf="_header">
+			<span [ngClass]="_header.icon"></span>
+			<clr-icon [attr.shape]="_header.icon" size="24"></clr-icon>
+			{{_header.title}}
+		</span>
+	</div>
+</div>
+<div class="tab-body">
+	<!-- APPS -->
+	<div *ngIf="tabSelected === 'apps'" fxLayout="row grap" fxLayoutGap="10px grid">
+		<div class="app" fxFlex="33" *ngFor="let app of _apps" (click)="openApp(app.route)">
+			<div matTooltip="{{app.desc}}" matTooltipHideDelay="500" matTooltipPosition="above">
+				<span class="app-icon" *ngIf="app.img"><img src="iconApps/{{app.img}}"></span>
+				<span class="app-icon" [ngClass]="[app.icon]" *ngIf="!app.img"></span>
+				<br>
+				<span>{{app.name}}</span>
+			</div>
+		</div>
+	</div>
+	<!-- HISTORY -->
+	<div *ngIf="tabSelected === 'history'">
+		Historial
+		<div *ngFor="let app of _history">
+		</div>
+	</div>
+	<!-- MENU -->
+	<div *ngIf="tabSelected === 'menu'">
+		<div *ngFor="let item of _menu">
+			<button mat-button (click)="openRoute(item)" class="menu-option">
+				<clr-icon [attr.shape]="item.icon" size="22"></clr-icon>
+				<span class="option-text">{{item.title}}</span>
+			</button>
+		</div>
+		<!-- SUBMENU -->
+		<div *ngIf="_subMenu">
+			<mat-divider></mat-divider>
+			<div *ngIf="_subHeader">
+				<br>
+				<span [ngClass]="_subHeader.icon"></span>
+				{{_subHeader.title}}
+			</div>
+			<div *ngFor="let item of _subMenu">
+				<button mat-button (click)="openRouteSub(item)" class="menu-option">
+					<clr-icon [attr.shape]="item.icon" size="22"></clr-icon>
+					{{item.title}}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

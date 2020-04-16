@@ -1,0 +1,10 @@
+<div class="vertical-form">
+	<mat-form-field>
+		<input matInput placeholder="Documento de Identidad" [(ngModel)]="user" autofocus name="user" type="user" #loginInput (keydown)="handleKeyDown($event)">
+	</mat-form-field>
+	<mat-form-field>
+		<input matInput placeholder="Contraseña" [(ngModel)]="password" name="inputPassword" type="password" (keydown)="handleKeyDown($event)">
+	</mat-form-field>
+	<button mat-raised-button color="primary" (click)="login()">Ingresar</button>
+	<div *ngIf="error" class="alert text-danger">Usuario o contraseña incorrecta</div>
+</div>

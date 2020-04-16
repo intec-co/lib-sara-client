@@ -1,0 +1,33 @@
+<mat-toolbar class="navbar">
+	<div class="navbar-logo">
+		<img [src]="logo" alt="">
+	</div>
+	<button mat-icon-button class="option" (click)="sidenav.toggle()" *ngIf="showMenu">
+		<clr-icon shape="bars" size="24" class="is-solid"></clr-icon>
+	</button>
+	<span class="fill-remaining-space"></span>
+	<span class="option" routerLink="/">
+		<clr-icon shape="home" size="24"></clr-icon>
+	</span>
+	<span class="option" [matMenuTriggerFor]="appMenu">
+		<clr-icon shape="user" size="24"></clr-icon>
+		<span fxHide.xs>{{userInfo.givenName}} {{userInfo.familyName}}</span>
+	</span>
+	<span class="option" (click)="logout()">
+		<clr-icon shape="logout" size="24"></clr-icon>
+		<span fxHide.xs>salir</span>
+	</span>
+</mat-toolbar>
+<mat-menu #appMenu="matMenu" [overlapTrigger]="false">
+	<button mat-menu-item (click)="_changePassword()"> Cambiar contraseña </button>
+	<mat-divider></mat-divider>
+	<button mat-menu-item (click)="changeTheme()">{{changeThemeTo}}</button>
+</mat-menu>
+<mat-sidenav-container>
+	<mat-sidenav #sidenav mode="side" [(opened)]="opened">
+		<ng-content select="[desk-menu]"></ng-content>
+	</mat-sidenav>
+	<mat-sidenav-content class="sidenav-content">
+		<ng-content select="[desk-content]"></ng-content>
+	</mat-sidenav-content>
+</mat-sidenav-container>

@@ -3,7 +3,7 @@ import { CanActivate, Router } from '@angular/router';
 import { TransactionsService } from './transactions.service';
 import { map, first } from 'rxjs/operators';
 import { forkJoin, Observable, of, Subject } from 'rxjs';
-import { App } from './menu.service';
+import { App } from '../class/menu';
 
 @Injectable({ providedIn: 'root' })
 export class SessionService implements CanActivate {

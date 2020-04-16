@@ -3,7 +3,7 @@ import { Subject, Observable } from 'rxjs';
 import { ClarityIcons } from '@clr/icons';
 import { ClrShapeLogout } from '@clr/icons/shapes/essential-shapes';
 
-import { SessionService, RoutesService } from '$Lib/services';
+import { SessionService, RoutesService } from '../services';
 
 export abstract class AppClient {
 	protected loadSubject: Subject<boolean>;

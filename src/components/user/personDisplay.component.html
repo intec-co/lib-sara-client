@@ -1,0 +1,31 @@
+<form [formGroup]="personForm">
+	<div class="" fxLayout="row wrap">
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<span matPrefix>
+				{{docIdType}}:
+			</span>
+			<input type="text" matInput placeholder="Documento Identidad" readonly formControlName="docId">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input type="text" matInput placeholder="Primer Nombre" readonly formControlName="givenName">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input type="text" matInput placeholder="Segundo Nombre" readonly formControlName="givenNameSecond">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input type="text" matInput placeholder="Primer Apellido" readonly formControlName="familyName">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input type="text" matInput placeholder="Segundo Apellido" readonly formControlName="familyNameSecond">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input type="tel" matInput placeholder="Teléfono Móvil" readonly formControlName="cellphone">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input type="tel" matInput placeholder="Teléfono Fijo" readonly formControlName="phone">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input matInput placeholder="Correo Electrónico" readonly formControlName="email">
+		</mat-form-field>
+	</div>
+</form>

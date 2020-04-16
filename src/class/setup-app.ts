@@ -1,5 +1,6 @@
 import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
-import { RoutesService, SessionService, MenuSara, App, MenuOption } from '$Lib/services';
+import { RoutesService, SessionService } from '../services';
+import { MenuSara, App, MenuOption } from './menu';
 
 export abstract class SetupApp implements CanActivate {
 	protected abstract option: App;

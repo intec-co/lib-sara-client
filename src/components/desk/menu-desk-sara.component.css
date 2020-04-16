@@ -1,0 +1,93 @@
+.tab {
+	line-height: 40px;
+	width: 40px;
+	margin-bottom: -1px;
+	border-radius: 5px 5px 0% 0%;
+	display: inline-flex;
+	width: auto;
+	cursor: pointer;
+}
+
+.tab-content {
+	line-height: 40px;
+	padding: 0px 10px 0px 10px;
+	font-weight: normal;
+}
+
+.tab-header {
+	margin-top: 10px;
+	border-bottom: 1px solid lightgray;
+}
+
+.tab-selected {
+	border-left: 1px solid lightgray;
+	border-top: 1px solid lightgray;
+	border-right: 1px solid lightgray;
+	border-bottom: 1px solid white;
+}
+
+.tab-unselected {
+	border: 1px solid transparent;
+}
+
+.tab-body {
+	padding: 10px;
+	box-sizing: border-box;
+	font-weight: 100;
+}
+
+.app {
+	font-size: 0.9em;
+	font-weight: 400;
+	cursor: pointer;
+	text-align: center;
+	line-height: normal;
+}
+
+.app-icon {
+	font-size: 30px;
+	max-height: 40px;
+}
+
+.app-icon img {
+	max-height: 60px;
+}
+
+.menu-option {
+	font-weight: 400;
+	width: 100%;
+	text-align: left;
+}
+
+.option-icon {
+	background: #0078D7;
+	color: white;
+	display: inline-table;
+	border-radius: 5px;
+	width: 30px;
+	height: 30px;
+}
+
+.option-text {
+	color: #444;
+}
+
+/**
+Apps Class
+**/
+
+.email {
+	color: #0078D7;
+}
+
+.monitoring {
+	color: rgb(0, 215, 107);
+}
+
+.reports {
+	color: #b57747;
+}
+
+.userAdmin {
+	color: rgb(255, 40, 40);
+}

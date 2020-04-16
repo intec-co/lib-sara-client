@@ -1,0 +1,43 @@
+<form [formGroup]="personForm">
+	<div class="" fxLayout="row wrap">
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<button class="mat-input-menu" matPrefix [matMenuTriggerFor]="docIdTypeMenu">
+				{{docIdType}}
+				<clr-icon shape="caret down"></clr-icon>:
+			</button>
+			<input type="text" matInput placeholder="Documento Identidad" required formControlName="docId"
+				(blur)=" verifyDocId()">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input type="text" matInput placeholder="Primer Nombre" required formControlName="givenName">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input type="text" matInput placeholder="Segundo Nombre" formControlName="givenNameSecond">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input type="text" matInput placeholder="Primer Apellido" required formControlName="familyName">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input type="text" matInput placeholder="Segundo Apellido" formControlName="familyNameSecond">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input type="text" matInput placeholder="Teléfono Móvil" formControlName="cellphone">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input type="text" matInput placeholder="Teléfono Fijo" formControlName="phone">
+		</mat-form-field>
+		<mat-form-field fxFlex.gt-xs="50" fxFlex.gt-md="25" fxFlex="100">
+			<input matInput placeholder="Correo Electrónico" formControlName="email">
+		</mat-form-field>
+	</div>
+	<button mat-raised-button (click)="save()" color="primary" *ngIf="buttonSave" [disabled]="!enableSave">
+		<clr-icon shape="floppy" size="22"></clr-icon>
+	</button>
+</form>
+<mat-menu #docIdTypeMenu="matMenu">
+	<button mat-menu-item (click)="selectDocIdType('RC')">RC</button>
+	<button mat-menu-item (click)="selectDocIdType('TI')">TI</button>
+	<button mat-menu-item (click)="selectDocIdType('CC')">CC</button>
+	<button mat-menu-item (click)="selectDocIdType('CE')">CE</button>
+	<button mat-menu-item (click)="selectDocIdType('PA')">PA</button>
+</mat-menu>

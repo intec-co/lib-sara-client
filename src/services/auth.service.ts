@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { md5 } from 'js-md5';
 import { sha256 } from 'js-sha256';
 import { SessionService } from './session.service';
 import { TransactionsService } from './transactions.service';
@@ -53,29 +52,6 @@ export class AuthService {
 			this.password = '';
 			this.session.register(session);
 			this.router.navigate(['/']);
-		} else {
-			if (res.md5 && this.exe) {
-				this.exe = false;
-				const data = {
-					user,
-					md5: md5(this.password),
-					sha2: sha256(this.password)
-				};
-				const date = new Date().getTime();
-				const req: any = {
-					route: 'auth',
-					operation: 'validate',
-					data,
-					date,
-					count: 1
-				};
-				this.post.raw('auth', req).subscribe(
-					resAuth => this.process(user, resAuth, callback)
-				);
-				this.user = '';
-				this.password = '';
-			}
-			callback();
 		}
 	}
 	public registerIP(ip) {

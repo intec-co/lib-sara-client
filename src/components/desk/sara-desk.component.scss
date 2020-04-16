@@ -1,0 +1,70 @@
+@import '~@angular/material/theming';
+$font: mat-palette($mat-blue);
+
+@mixin nav-content($theme) {
+	$is-dark-theme: map-get($theme, is-dark);
+	$background: mat-color(map-get($theme, background), background);
+	$nav-background-color: if($is-dark-theme, $background, white);
+
+	mat-sidenav-content {
+		background: $nav-background-color;
+	}
+}
+
+@mixin desk-theme($theme) {
+
+	.option {
+		font-size: 16px;
+		margin-left: 12px;
+		margin-right: 12px;
+		cursor: pointer;
+	}
+
+	.option:hover {
+		text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+		color: $navbar-hover;
+	}
+
+	mat-sidenav-content {
+		padding: 10px;
+	}
+
+	mat-sidenav mat-icon {
+		color: mat-color($primary, 800);
+	}
+
+	.navbar {
+		position: fixed;
+		top: 0;
+		z-index: 100;
+		background-color: $navbar;
+		border-bottom: 1px solid whitesmoke;
+		color: $navbar-text;
+	}
+
+	.navbar-logo {
+		margin-left: -16px;
+		padding: 0px 15px 0 15px;
+		background-color: $navbar-logo;
+		height: 63px;
+	}
+
+	.navbar-logo img {
+		margin-top: 5px;
+		max-height: 55px;
+	}
+
+	mat-sidenav {
+		width: 300px;
+		padding: 70px 6px 6px 6px;
+		border-right: 1px solid lightgray;
+		font-weight: bold;
+		color: mat-color($font, 400);
+	}
+
+	mat-sidenav-container {
+		padding-top: 64px;
+		padding-bottom: $footer-height+20px;
+		height: 100%;
+	}
+}

@@ -1,0 +1,24 @@
+<div class="search" fxLayout="row">
+	<input type="search" [matAutocomplete]="auto" [formControl]="searchControl" [placeholder]="placeholder">
+	<span *ngIf="!options">
+		<span class="ti-search"></span>
+	</span>
+	<span *ngIf="options">
+		<mat-menu #searchMenu="matMenu" xPosition="before">
+			<button mat-menu-item *ngFor="let option of options; let i = index"
+				(click)="emitOption(i)">{{option.title}}</button>
+		</mat-menu>
+		<button [matMenuTriggerFor]="searchMenu">
+			<clr-icon shape="search" size="24"></clr-icon>
+		</button>
+	</span>
+</div>
+<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="selected($event)"
+	panel="'options'">
+	<mat-option *ngFor="let item of filteredResults | async" [value]="item">
+		<span fxLayout="row" class="item">
+			<span [innerHTML]="item.name| titlecase| highlight: toHighlight"></span>,
+			<span class="item-add" [innerHTML]="item.docId | highlight: toHighlight"></span>
+		</span>
+	</mat-option>
+</mat-autocomplete>

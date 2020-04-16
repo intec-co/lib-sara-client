@@ -1,0 +1,7 @@
+<div class="vertical-form">
+	<mat-form-field>
+		<input matInput placeholder="Documento de Identidad" [(ngModel)]="user" name="user" type="user" #userInput>
+	</mat-form-field>
+	<button mat-raised-button color="primary" (click)="recovery()">Recuperar Cuenta</button>
+	<div *ngIf="msg" class="alert text-success">Se ha enviado un mensaje a su correo electrónico</div>
+</div>
