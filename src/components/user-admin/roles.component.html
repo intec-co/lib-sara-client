@@ -1,0 +1,5 @@
+<div fxFlex="none" fxLayout="column" fxLayoutGap="10px" *ngIf="show">
+	<div fxFlex="none" *ngFor="let role of roles; let i = index">
+		<button mat-raised-button style="width: 200px" [color]="role.color" (click)="setRole(i)">{{role.name}}</button>
+	</div>
+</div>

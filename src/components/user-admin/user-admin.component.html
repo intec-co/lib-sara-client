@@ -1,0 +1,10 @@
+<span class="mat-h2 text-primary">Información Personal</span>
+<person></person>
+<div *ngIf="id">
+	<mat-divider></mat-divider>
+	<span class="mat-h2 text-primary">Contraseña</span>
+	<password [user]="id"></password>
+	<mat-divider></mat-divider>
+	<span class="mat-h2 text-primary">Roles</span>
+	<roles></roles>
+</div>
